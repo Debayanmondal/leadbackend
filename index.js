@@ -4,9 +4,9 @@ import dotenv from "dotenv";
 import cors from "cors";
 //const bodyParser = require("body-parser");
 import leadRoutes from "./routes/leadRoutes.js";
-import userRoutes from"./routes/userRoutes";
-import sourceRoutes from"./routes/sourceRoutes";
-import industryRoutes from"./routes/industryRoutes";
+import userRoutes from"./routes/userRoutes.js";
+import sourceRoutes from"./routes/sourceRoutes.js";
+import industryRoutes from"./routes/industryRoutes.js";
 
 const app = express();
 
