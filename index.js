@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 
 dotenv.config();
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3000;
 const URI = process.env.MongoDBURI;
 
 // MongoDB connection
@@ -30,6 +30,9 @@ try {
 
 // Routes
 app.use("/api/leads", leadRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/sources', sourceRoutes);
+app.use('/api/industries', industryRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);

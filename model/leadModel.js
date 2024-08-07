@@ -1,44 +1,83 @@
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
 
-const addressSchema = mongoose.Schema({
-  street: { type: String, required: true },
-  city: { type: String, required: true },
-  state: { type: String, required: true },
-  zipCode: { type: String, required: true },
-  country: { type: String, required: true },
-});
+// const leadSchema = mongoose.Schema(
+//   {
+//     leadImage: { type: String },
+//     leadOwner: { type: Schema.Types.ObjectId, ref: "User", required: true }, // Reference to users collection
+//     firstName: { type: String, required: true },
+//     lastName: { type: String, required: true },
+//     title: { type: String },
+//     phone: { type: String },
+//     mobile: { type: String },
+//     email: { type: String, required: true, unique: true },
+//     secondaryEmail: { type: String },
+//     fax: { type: String },
+//     skypeID: { type: String },
+//     twitter: { type: String },
+//     leadSource: { type: Schema.Types.ObjectId, ref: "Source" }, // Reference to sources collection
+//     leadStatus: { type: String },
+//     rating: { type: String },
+//     leadScore: { type: Number },
+//     interestLevel: { type: String },
+//     nextFollowUpDate: { type: Date },
+//     emailOptOut: { type: Boolean, default: false },
+//     description: { type: String },
+//     companyId: { type: Schema.Types.ObjectId, ref: "Company" }, // Reference to companies collection
+//     addressId: { type: Schema.Types.ObjectId, ref: "Address" }, // Reference to addresses collection
+//     preferredContactMethod: { type: Schema.Types.ObjectId, ref: "ContactMethod" }, // Reference to contact_methods collection
+//     linkedInProfile: { type: String },
+//     referralSource: { type: String },
+//     timeZone: { type: String },
+//   },
+//   {
+//     timestamps: true, // Adds createdAt and updatedAt fields
+//   }
+// );
 
-const leadSchema = mongoose.Schema(
+// const Lead = mongoose.model("Lead", leadSchema);
+
+// export default Lead;
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
+
+// Define the lead schema
+const leadSchema = new Schema(
   {
     leadImage: { type: String },
-    leadOwner: { type: String, required: true },
+    leadOwner: { type: Schema.Types.ObjectId, ref: 'User', required: true }, // Reference to users collection
     firstName: { type: String, required: true },
+    lastName: { type: String, required: true },
     title: { type: String },
     phone: { type: String },
     mobile: { type: String },
-    leadSource: { type: String },
-    industry: { type: String },
-    annualRevenue: { type: Number },
-    emailOptOut: { type: Boolean, default: false },
-    company: { type: String, required: true },
-    lastName: { type: String, required: true },
     email: { type: String, required: true, unique: true },
-    fax: { type: String },
-    website: { type: String },
-    leadStatus: { type: String },
-    numberOfEmployees: { type: Number },
-    rating: { type: String },
-    skypeID: { type: String },
     secondaryEmail: { type: String },
+    fax: { type: String },
+    skypeID: { type: String },
     twitter: { type: String },
-    address: { type: addressSchema, required: true },
+    leadSource: { type: Schema.Types.ObjectId, ref: 'Source' }, // Reference to sources collection
+    leadStatus: { type: String },
+    rating: { type: String },
+    leadScore: { type: Number },
+    interestLevel: { type: String },
+    nextFollowUpDate: { type: Date },
+    emailOptOut: { type: Boolean, default: false },
     description: { type: String },
+    companyId: { type: Schema.Types.ObjectId, ref: 'Company' }, // Reference to companies collection
+    addressId: { type: Schema.Types.ObjectId, ref: 'Address' }, // Reference to addresses collection
+    preferredContactMethod: { type: Schema.Types.ObjectId, ref: 'ContactMethod' }, // Reference to contact_methods collection
+    linkedInProfile: { type: String },
+    referralSource: { type: String },
+    timeZone: { type: String }
   },
   {
-    timestamps: true, // Adds createdAt and updatedAt fields
+    timestamps: true // Adds createdAt and updatedAt fields
   }
 );
 
-const Lead = mongoose.model("Lead", leadSchema);
+// Define the Lead model
+const Lead = mongoose.model('Lead', leadSchema);
 
-export default Lead;
+// Export the Lead model
+module.exports = Lead;
+
