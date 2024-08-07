@@ -1,4 +1,4 @@
-const User = require('../model/userModel');
+const User = require('../model/userModel.js');
 
 // Get all userName where role is Lead Owner
 exports.getLeadOwners = async (req, res) => {
