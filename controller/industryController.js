@@ -1,4 +1,4 @@
-const Industry = require('../model/industryModel');
+const Industry = require('../model/industryModel.js');
 
 // Get all industryName
 exports.getAllIndustries = async (req, res) => {
