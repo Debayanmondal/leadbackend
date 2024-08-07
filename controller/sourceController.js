@@ -1,4 +1,4 @@
-const Source = require('../model/sourceModel');
+const Source = require('../model/sourceModel.js');
 
 // Get all sourceName
 exports.getAllSources = async (req, res) => {
