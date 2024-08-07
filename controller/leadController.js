@@ -1,4 +1,4 @@
-import Lead from "../model/leadModel";
+import Lead from "../model/leadModel.js";
 
 // Create a new lead
 exports.createLead = async (req, res) => {
